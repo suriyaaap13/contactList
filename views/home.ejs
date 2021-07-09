@@ -1,10 +1,74 @@
 <html>
     <head>
         <title>
-            My Contact List
+            <%= title %>
         </title>
+
+        <!-- linking the css stylesheet -->
+        <link rel="stylesheet" href="/CSS/home.css">
+
+        <!-- Fontawesome cdn -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
     </head>
     <body>
-        <h1>Display of Contact List</h1>
+
+        <div class="heading">
+            <h1>
+                <i class="far fa-address-card"></i>
+                Contacts
+            </h1>
+
+        </div>
+
+        <div class="contact-list-container">
+            <!-- <div class="contact-list-heading">
+                <p>Name</p>
+                <p>phone</p>
+            </div> -->
+            <div class="contact-list">
+                <ul>
+                    <% for(let i of contact_list){ %>
+                        <li class="contact">
+                            <p><%= i.name %></p>
+                            <p><%= i.phone %></p>
+                            <a href="/delete-contact/?id=<%=i._id%>">
+                                <i class="fas fa-trash-alt" style="font-size: 15px;color:grey;"></i>
+                            </a>
+                        </li>
+                        <%}%>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- bg-modal Section -->
+        <div class="bg-modal">
+            <div class="modal-content">
+                <div class="close">
+                    +
+                </div>
+                
+                <form action="/create-contact" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <!-- <input type="text" name="Last Name" placeholder="Last Name"> -->
+                    <input type="number" name="phone" placeholder="phone" required>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+            
+        </div>
+
+        <!-- create-Button -->
+        <div class="create-button">
+            <i class="fas fa-plus"></i>
+        </div>
+
+        <!-- linking the javascript file -->
+        <script type="text/javascript" src="/js/home.js">
+        
+        </script>
+
+
     </body>
 </html>

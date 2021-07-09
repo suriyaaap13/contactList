@@ -6,10 +6,12 @@ const homeController = require('../controller/home_controller');
 const createContactController = require('../controller/create_contact_controller');
 
 
-console.log('router loaded');
+// console.log('router loaded');
 
 router.get('/',homeController.home);
-router.use('/create-contact',require('./create_contact'));
-router.use('/delete-contact',require('./delete_contact'));
+router.use('/create-contact',require('./create-contact'));
+router.use('/delete-contact',require('./delete-contact'));
 
 module.exports = router;
+
+//The delete work fine though try it as well ok
