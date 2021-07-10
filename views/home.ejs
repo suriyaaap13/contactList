@@ -10,7 +10,6 @@
         <!-- Fontawesome cdn -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-
     </head>
     <body>
 
@@ -23,21 +22,23 @@
         </div>
 
         <div class="contact-list-container">
-            <!-- <div class="contact-list-heading">
-                <p>Name</p>
-                <p>phone</p>
-            </div> -->
             <div class="contact-list">
                 <ul>
+                    <li style="font-size: 1.2rem;padding: 5px;font-weight: bolder;">
+                        <p>Name</p>
+                        <p>Phone No.</p>
+                    </li>
                     <% for(let i of contact_list){ %>
                         <li class="contact">
                             <p><%= i.name %></p>
                             <p><%= i.phone %></p>
-                            <a href="/delete-contact/?id=<%=i._id%>">
-                                <i class="fas fa-trash-alt" style="font-size: 15px;color:grey;"></i>
-                            </a>
+                            <div class="actions-container">
+                                <a href="/delete-contact/?id=<%=i._id%>">
+                                    <i class="fas fa-trash-alt" style="font-size: 18px;color:#2C5F2D;"></i>
+                                </a>
+                            </div>
                         </li>
-                        <%}%>
+                    <%}%>
                 </ul>
             </div>
         </div>
@@ -50,8 +51,15 @@
                 </div>
                 
                 <form action="/create-contact" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <!-- <input type="text" name="Last Name" placeholder="Last Name"> -->
+                    <input type="text" name="name" placeholder="First Name" required>
+                    <input type="text" name="last_Name" placeholder="Last Name">
+                    
+                    <input type="text" name="Company" placeholder="Company">
+                    <input type="text" name="job_title" placeholder="Job title">
+
+                    <input type="email" name="email" placeholder="abc@xyz.com">
+
+
                     <input type="number" name="phone" placeholder="phone" required>
                     <button type="submit">Save</button>
                 </form>
